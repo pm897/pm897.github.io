@@ -1,0 +1,350 @@
+/* =========================================
+   1. THEME VARIABLES (The Realm Toggle)
+   ========================================= */
+
+/* Default: Corporate Realm (Clean, professional, modern) */
+:root {
+    --bg-color: #f3f4f6;
+    --card-bg: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary-color: #e5e7eb;
+    --secondary-hover: #d1d5db;
+    --correct-color: #10b981;
+    --incorrect-color: #ef4444;
+    --border-color: #e5e7eb;
+    --gold-accent: #fbbf24;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Toggled: Fantasy Realm (Magical, warm, RPG-style) */
+body.fantasy-theme {
+    --bg-color: #2e1a47; /* Deep mystical purple */
+    --card-bg: #fdf6e3; /* Aged parchment */
+    --text-main: #2c1e16; /* Dark brown ink */
+    --text-muted: #5c4d42;
+    --primary-color: #8b5cf6; /* Magic purple */
+    --primary-hover: #7c3aed;
+    --secondary-color: #e2d8c3; /* Darker parchment */
+    --secondary-hover: #d4c5a9;
+    --correct-color: #059669; /* Emerald */
+    --incorrect-color: #dc2626; /* Crimson */
+    --border-color: #d4c5a9;
+    --gold-accent: #d97706; /* Deep gold */
+    --font-family: 'Georgia', serif; /* Bookish font */
+}
+
+/* =========================================
+   2. GLOBAL RESETS & LAYOUT
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* =========================================
+   3. HEADER (The Wizard's Stats)
+   ========================================= */
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: background-color 0.4s ease;
+}
+
+.stats-bar {
+    display: flex;
+    gap: 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+#score-counter {
+    color: var(--gold-accent);
+}
+
+/* =========================================
+   4. MAIN QUEST BOARD (The Card)
+   ========================================= */
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 650px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 2rem;
+    transition: background-color 0.4s ease;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.badge {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.badge-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-main);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+#question-text {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+/* =========================================
+   5. INTERACTIVE ELEMENTS (MCQ & TBS)
+   ========================================= */
+
+#interactive-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* MCQ Buttons */
+.mcq-option {
+    background-color: var(--secondary-color);
+    color: var(--text-main);
+    border: 2px solid transparent;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.mcq-option:hover:not(:disabled) {
+    background-color: var(--secondary-hover);
+    transform: translateY(-2px);
+}
+
+.mcq-option.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(37, 99, 235, 0.1); /* Slight blue tint */
+}
+
+/* TBS Input */
+.tbs-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.tbs-input {
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-family: inherit;
+    background-color: var(--card-bg);
+    color: var(--text-main);
+}
+
+.tbs-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Exhibit Modals/Cards */
+#exhibits-container {
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.exhibit-item h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.exhibit-item p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+}
+
+/* =========================================
+   6. FEEDBACK & CONTROLS
+   ========================================= */
+
+#explanation-box {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.4s ease;
+}
+
+#explanation-box.correct-feedback {
+    background-color: rgba(16, 185, 129, 0.1);
+    border-left: 4px solid var(--correct-color);
+}
+
+#explanation-box.incorrect-feedback {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-left: 4px solid var(--incorrect-color);
+}
+
+#feedback-title {
+    margin-bottom: 0.5rem;
+}
+
+/* Standard Action Buttons */
+.btn-primary {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s;
+    font-family: inherit;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--primary-hover);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-theme {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--text-main);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.btn-theme:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* =========================================
+   7. PROGRESS BAR (Footer)
+   ========================================= */
+
+footer {
+    width: 100%;
+    background-color: var(--card-bg);
+}
+
+#progress-container {
+    width: 100%;
+    height: 10px;
+    background-color: var(--secondary-color);
+}
+
+#progress-bar {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0%; /* JavaScript will update this */
+    transition: width 0.5s ease-out;
+}
+
+/* =========================================
+   8. ANIMATIONS & UTILITIES
+   ========================================= */
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.4s ease-in-out;
+}
+
+/* State Colors for Buttons Post-Submit */
+.btn-correct {
+    background-color: var(--correct-color) !important;
+    color: white !important;
+}
+
+.btn-incorrect {
+    background-color: var(--incorrect-color) !important;
+    color: white !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .app-header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .stats-bar {
+        font-size: 0.9rem;
+        gap: 1rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+}
