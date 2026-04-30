@@ -3,56 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAR Quest: CPA Study Realm</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Peter Michota Jr | Rutgers Accounting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rutgersScarlet: '#cc0033',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .scarlet-underline {
+            position: relative;
+        }
+        .scarlet-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -4px;
+            left: 0;
+            background-color: #cc0033;
+            transition: width 0.4s ease-in-out;
+        }
+        .scarlet-underline:hover::after {
+            width: 100%;
+        }
+    </style>
 </head>
-<body>
-    
-    <header class="app-header">
-        <div class="stats-bar">
-            <span id="streak-counter" title="Daily Study Streak">🔮 Streak: 0</span>
-            <span id="score-counter" title="Total Points">👑 Gold: 0</span>
-            <span id="player-rank" title="Current Rank">🧟‍♂️ Zombie of the Ledger</span>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+        <div class="p-6 max-w-5xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold text-rutgersScarlet">RU</div>
+            <div class="space-x-6 font-medium">
+                <a href="#about" class="scarlet-underline text-sm uppercase tracking-wider">About</a>
+                <a href="#experience" class="scarlet-underline text-sm uppercase tracking-wider">Experience</a>
+                <a href="#contact" class="bg-rutgersScarlet text-white px-5 py-2 rounded-full hover:bg-red-700 transition">Contact Me</a>
+            </div>
         </div>
-        <button id="theme-toggle" class="btn-theme">🪄 Toggle Realm</button>
+    </nav>
+
+    <header class="max-w-5xl mx-auto px-6 pt-32 pb-20 flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4">
+                Hi, I'm <span class="text-rutgersScarlet">Peter Michota Jr</span>.
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 font-light italic">
+                Accounting Major at RBS/Rutgers University–New Brunswick | Aspiring CPA | May 2026 Expected Graduation
+            </p>
+            <div class="flex gap-4">
+                <a href="#projects" class="border-2 border-rutgersScarlet text-rutgersScarlet px-6 py-2 rounded font-bold hover:bg-rutgersScarlet hover:text-white transition">View Projects</a>
+            </div>
+        </div>
+        
+        <div class="md:w-1/2 flex justify-center">
+            <div class="relative">
+                <div class="absolute -inset-1 bg-rutgersScarlet rounded-full blur opacity-25"></div>
+                <img src="Assets/ProfilePic.jpeg" alt="Peter Michota Jr Professional Portrait" class="relative w-64 h-64 rounded-full object-cover border-4 border-white shadow-xl">
+            </div>
+        </div>
     </header>
 
-    <main class="container">
-        <div id="quest-board" class="card">
-            
-            <div class="card-header">
-                <span id="category-badge" class="badge">Summoning Topic...</span>
-                <span id="question-type-badge" class="badge-secondary">Type</span>
+    <section id="about" class="bg-white py-24 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-10 border-l-4 border-rutgersScarlet pl-4 uppercase tracking-tight">About Me</h2>
+            <div class="grid md:grid-cols-3 gap-10 items-start">
+                <div class="md:col-span-2">
+                    <p class="text-lg leading-relaxed text-gray-700 mb-6">
+                        I am a student currently in my Senior year at Rutgers University - New Brunswick majoring in Accounting. I plan on getting my Bachelor's, then possibly getting my Master's, along with my CPA as soon as I possibly can. 
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-700 mb-6">
+                        My academic journey has revolved around mathematics and the art of business, and I am pleased to say that it has ignited a spark inside of me, inspiring me to learn more. I also started to get inspired by my father, who is also an accountant that traveled from Poland, and saw more of my own beliefs in him with each passing day. 
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-700">
+                        Eventually, I decided that I wanted to walk through the path my father created, and make my ultimate goal to be an accountant with a CPA. Accounting is a job that helps people across the globe, and I couldn't be more excited to show what I can offer to the table in the future.
+                    </p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h4 class="font-bold text-rutgersScarlet uppercase text-xs tracking-widest mb-4">Focus Areas</h4>
+                    <ul class="space-y-2 text-sm font-medium">
+                        <li class="flex items-center gap-2"><span>📈</span> Audit Analytics</li>
+                        <li class="flex items-center gap-2"><span>⚖️</span> Regulatory Compliance</li>
+                        <li class="flex items-center gap-2"><span>🏢</span> Corporate Tax</li>
+                        <li class="flex items-center gap-2"><span>💻</span> Generative AI</li>
+                    </ul>
+                </div>
             </div>
-            
-            <h2 id="question-text">Gazing into the orb to find your next encounter...</h2>
-            
-            <div id="exhibits-container" class="hidden">
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 border-l-4 border-rutgersScarlet pl-4 uppercase tracking-tight">Professional Experience</h2>
+            <div class="space-y-8">
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold">Part-Time/Intern Revenue Clerk </h3>
+                            <p class="text-rutgersScarlet font-semibold">Township of Randolph - Randolph, NJ</p>
+                        </div>
+                        <span class="text-gray-400 text-sm font-bold uppercase">Jun. 2025 – Dec. 2025</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+Handled revenue/tax collections for over 8,000 residents interning with the local government, ensuring an >97% accuracy rate in transactions and resolving over 200 resident inquiries with timely communication.                    </p>
                 </div>
 
-            <div id="interactive-container">
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold">Volunteering with Fellow Parishioners</h3>
+                            <p class="text-rutgersScarlet font-semibold">Our Lady of the Mountain Parish - Long Valley, NJ</p>
+                        </div>
+                        <span class="text-gray-400 text-sm font-bold uppercase">Sept. 2019 – March 2020</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+Led food drives and attended events from other churches, while also assisting locals from outside the parish such as firehouses, contributing up to more than 15 hours of volunteer work, while going across 5+ locations.                    </p>
                 </div>
 
-            <div id="explanation-box" class="hidden">
-                <h3 id="feedback-title"></h3>
-                <p id="feedback-text"></p>
             </div>
+        </div>
+    </section>
 
-            <div class="card-footer">
-                <button id="action-btn" class="btn-primary" disabled>Cast Answer ⚡</button>
+    <section id="projects" class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 border-l-4 border-rutgersScarlet pl-4 uppercase tracking-tight">Featured Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="group overflow-hidden rounded-xl bg-slate-50 border border-slate-200 hover:border-rutgersScarlet transition-all duration-300">
+                    <div class="h-40 bg-slate-200 flex items-center justify-center">
+                        <span class="text-rutgersScarlet font-bold tracking-tighter text-xl">AI & Audit Analytics</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-[10px] font-bold uppercase bg-rutgersScarlet text-white px-2 py-1 rounded">Gemini</span>
+                            <span class="text-[10px] font-bold uppercase bg-slate-200 text-slate-700 px-2 py-1 rounded">Prompt Engineering</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-rutgersScarlet transition-colors">Audit Analytics Assignment</h3>
+                        <p class="text-slate-600 text-sm mb-4">
+                            Conducted 3 prompt scenarios regarding Airbnb on Gemini 3.0 to analyze the importance of prompt engineering, created a potential X post, LinkedIn post and analysis of Airbnb’s 10K.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group overflow-hidden rounded-xl bg-slate-50 border border-slate-200 hover:border-rutgersScarlet transition-all duration-300">
+                    <div class="h-40 bg-slate-200 flex items-center justify-center">
+                        <span class="text-rutgersScarlet font-bold tracking-tighter text-xl">Management Skills Group Project</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-[10px] font-bold uppercase bg-rutgersScarlet text-white px-2 py-1 rounded">Strategy</span>
+                            <span class="text-[10px] font-bold uppercase bg-slate-200 text-slate-700 px-2 py-1 rounded">Output Problems</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-rutgersScarlet transition-colors">Managing and Problem Solving</h3>
+                        <p class="text-slate-600 text-sm mb-4">
+Collaborated with a small business owner to analyze operational data and locate output problems, leading to goal- setting strategies that improved the team’s productivity by 10% and a sturdy plan for the future.                        </p>
+                    </div>
+                </div>
+
             </div>
-
         </div>
-    </main>
+    </section>
 
-    <footer>
-        <div id="progress-container">
-            <div id="progress-bar"></div>
+    <section id="contact" class="py-24 bg-slate-900 text-white">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">Let's Connect</h2>
+            <p class="text-slate-400 mb-10 max-w-lg mx-auto italic">Currently seeking CPA-track opportunities for 2026. I'd love to hear from you.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 border border-slate-800 rounded-lg">
+                    <div class="text-rutgersScarlet text-2xl mb-2 font-bold">Email</div>
+                    <a href="mailto:pm897@scarletmail.rutgers.edu" class="text-lg hover:text-rutgersScarlet transition">pm897@scarletmail.rutgers.edu</a>
+                </div>
+                <div class="p-6 border border-slate-800 rounded-lg">
+                    <div class="text-rutgersScarlet text-2xl mb-2 font-bold">LinkedIn</div>
+                    <a href="https://www.linkedin.com/in/peterjr0621/" target="_blank" class="text-lg hover:text-rutgersScarlet transition">Click Here!</a>
+                </div>
+                <div class="p-6 border border-slate-800 rounded-lg">
+                    <div class="text-rutgersScarlet text-2xl mb-2 font-bold">Location</div>
+                    <p class="text-lg">Hackettstown or New Brunswick / NJ Area</p>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <footer class="py-8 bg-slate-900 text-slate-500 text-center text-sm border-t border-slate-800">
+        © 2026 Peter Michota Jr. | Rutgers University
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
-    <script src="app.js"></script>
 </body>
 </html>
